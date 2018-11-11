@@ -24,7 +24,10 @@ yarn add semui-onyx
 ```
 
 ### Changes to the interactive installer
-The interactive installer no longer runs immediately after install. This caused issues for Yarn users and some CI setups. Instead, run `npm setup` or `gulp install` manually.
+The interactive installer no longer runs immediately after install. This caused issues for Yarn users and some CI setups. Instead, run `yarn setup` manually.
+
+### Gulp
+After running setup, in the directory (default: `semantic`) added to your project, run your `gulp` commands against the `gulpfile`.
 
 ## Theming
 To learn more about theming please read the [theming guide](http://www.semantic-ui.com/usage/theming.html).

@@ -1,6 +1,6 @@
 {
   "name": "semui-onyx",
-  "version": "2.4.2-onyx.4",
+  "version": "2.4.2-onyx.5",
   "title": "Sem UI",
   "description": "Sem UI is Semantic UI, but regularly maintained by the community into the future.",
   "homepage": "http://www.semantic-ui.com",
@@ -31,7 +31,7 @@
     "gulp-dedupe": "hyperultra/gulp-dedupe",
     "gulp-flatten": "^0.4.0",
     "gulp-header": "^2.0.5",
-    "gulp-help": "github:chmontgomery/gulp-help#gulp4",
+    "gulp-help": "hyperultra/gulp-help",
     "gulp-if": "^2.0.2",
     "gulp-json-editor": "^2.4.2",
     "gulp-less": "^4.0.1",

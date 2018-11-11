@@ -22,10 +22,8 @@ var
   del             = require('del'),
   fs              = require('fs'),
   path            = require('path'),
-  runSequence     = require('run-sequence'),
 
   // admin dependencies
-  concatFileNames = require('gulp-concat-filenames'),
   debug           = require('gulp-debug'),
   flatten         = require('gulp-flatten'),
   git             = require('gulp-git'),
@@ -50,8 +48,7 @@ var
 module.exports = function(callback) {
   var
     stream,
-    index,
-    tasks = []
+    index
   ;
 
   for(index in release.components) {
@@ -272,60 +269,20 @@ module.exports = function(callback) {
         ;
       });
 
-      // Creates meteor package.js
-      gulp.task(task.meteor, function() {
-        var
-          filenames = ''
-        ;
-        return gulp.src(manifest.component)
-          .pipe(concatFileNames('empty.txt', concatSettings))
-          .pipe(tap(function(file) {
-            filenames += file.contents;
-          }))
-          .on('end', function() {
-            gulp.src(manifest.assets)
-              .pipe(concatFileNames('empty.txt', concatSettings))
-              .pipe(tap(function(file) {
-                filenames += file.contents;
-              }))
-              .on('end', function() {
-                // remove trailing slash
-                filenames = filenames.replace(regExp.match.trailingComma, '').trim();
-                gulp.src(release.templates.meteor.component)
-                  .pipe(plumber())
-                  .pipe(flatten())
-                  .pipe(replace(regExp.match.name, regExp.replace.name))
-                  .pipe(replace(regExp.match.titleName, regExp.replace.titleName))
-                  .pipe(replace(regExp.match.version, version))
-                  .pipe(replace(regExp.match.files, filenames))
-                  .pipe(rename(release.files.meteor))
-                  .pipe(gulp.dest(outputDirectory))
-                ;
-              })
-            ;
-          })
-        ;
-      });
-
-
-      // synchronous tasks in orchestrator? I think not
-      gulp.task(task.all, false, function(callback) {
-        runSequence([
-          task.repo,
-          task.npm,
-          task.bower,
-          task.readme,
-          task.package,
-          task.composer,
-          task.notes,
-          task.meteor
-        ], callback);
-      });
-
-      tasks.push(task.all);
+      (gulp.task(task.all, gulp.series(
+        task.repo,
+        task.npm,
+        task.bower,
+        task.readme,
+        task.package,
+        task.composer,
+        task.notes,
+        function(done) {
+          callback();
+          done();
+        }
+      )))();
 
     })(component);
   }
-
-  runSequence(tasks, callback);
 };

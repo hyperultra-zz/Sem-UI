@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 2.4.2-onyx.1 - Nov 10, 2018
+
+**Minor Changes**
+- Fix NPM warnings.
+- Bump Gulp from `^3.9.1` -> `^4.0.0`.
+
 ### Version 2.4.2 - Oct 21, 2018
 
 **Build**

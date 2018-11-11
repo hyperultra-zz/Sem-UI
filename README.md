@@ -1,7 +1,7 @@
 # Sem UI
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/hyperultra/Semantic-UI/master/logo.png" width="400"/>
+  <img src="https://raw.githubusercontent.com/hyperultra/Sem-UI/master/logo.png" width="400"/>
 </p>
 
 [![Join the chat at https://gitter.im/Semantic-Org/Semantic-UI](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Semantic-Org/Semantic-UI?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![CDNJS](https://img.shields.io/cdnjs/v/semantic-ui.svg)](https://cdnjs.com/libraries/semantic-ui/)

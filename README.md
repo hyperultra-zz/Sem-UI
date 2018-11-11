@@ -20,7 +20,7 @@ Sem UI `2.4.2-onyx.1` includes fixes for NPM warnings and bumps Gulp to v4.
 ### Install using Yarn
 
 ```bash
-yarn add sem-ui
+yarn add semui-onyx
 ```
 
 ### Changes to the interactive installer
